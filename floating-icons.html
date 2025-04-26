@@ -1,0 +1,51 @@
+<!-- Carga de Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+        integrity="sha512-k5o/5jB+QWZM+V0+B6u7oU0BMGf6540qIy9yM6LOcooemGk+8rWHTejOU6d3elP2AA2rJYfY3giZjGUFZJgGDA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+  /* Contenedor general fijo sobre toda la ventana */
+  #floating-icons {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    z-index: 9999 !important;
+    pointer-events: none; /* Para que no interfiera con clicks fuera de los iconos */
+  }
+  /* Cada icono */
+  #floating-icons a {
+    pointer-events: auto; /* Reactivar clicks en los enlaces */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    background: #000 !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    text-decoration: none !important;
+    font-size: 1.3rem !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+    transition: transform 0.2s ease, background 0.2s ease !important;
+  }
+  #floating-icons a:hover {
+    transform: translateY(-2px) !important;
+    background: #c00 !important;
+  }
+</style>
+
+<!-- HTML de los iconos -->
+<div id="floating-icons">
+  <a href="mailto:tu-email@dominio.com" title="Envíame un email">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="tel:+1234567890" title="Llámanos">
+    <i class="fas fa-phone"></i>
+  </a>
+  <a href="https://wa.me/1234567890" target="_blank" title="Chatea por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
