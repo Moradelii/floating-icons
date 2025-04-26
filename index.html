@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iconos Flotantes</title>
-  <!-- Font Awesome CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <!-- Font Awesome CSS sin integrity para evitar problemas de SRI -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
   <style>
     /* Contenedor fijo en esquina inferior izquierda */
     .floating-icons {
@@ -41,11 +39,23 @@
       transform: translateY(-2px);
       background: #c00;
     }
+    /* Oculta texto a visual, pero visible para lectores de pantalla */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 </head>
 <body>
-  <!-- Contenedor de iconos flotantes con accesibilidad -->
-  <div class="floating-icons" role="navigation" aria-label="Enlaces de contacto">
+  <!-- Contenedor de iconos flotantes -->
+  <nav class="floating-icons" aria-label="Enlaces de contacto">
     <a href="mailto:tu-email@dominio.com" title="Envíame un email">
       <i class="fas fa-envelope" aria-hidden="true"></i>
       <span class="sr-only">Correo electrónico</span>
@@ -58,20 +68,7 @@
       <i class="fab fa-whatsapp" aria-hidden="true"></i>
       <span class="sr-only">WhatsApp</span>
     </a>
-  </div>
-
-  <!-- Script para eliminar aria-hidden de ancestros y prevenir conflicto de foco -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var container = document.querySelector('.floating-icons');
-      var el = container;
-      while (el) {
-        if (el.hasAttribute('aria-hidden')) {
-          el.removeAttribute('aria-hidden');
-        }
-        el = el.parentElement;
-      }
-    });
-  </script>
+  </nav>
 </body>
 </html>
+
